@@ -1,0 +1,16 @@
+include <vitamins/washers.scad>
+include <vitamins/nuts.scad>
+include <vitamins/screws.scad>
+include <vitamins/stepper-motors.scad>
+include <vitamins/ball_bearings.scad>
+include <vitamins/extrusion.scad>
+include <vitamins/psu.scad>
+include <vitamins/rail.scad>
+include <vitamins/fans.scad>
+include <vitamins/pulleys.scad>
+include <vitamins/cylinders.scad>
+include <vitamins/belts.scad>
+include <vitamins/microswitch.scad>
+use <vitamins/e3d-v6.scad>
+use <vitamins/ooznest.scad>
+use <vitamins/electronics.scad>
