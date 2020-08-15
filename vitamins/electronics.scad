@@ -16,6 +16,7 @@ module duet_wifi_mount_holes() {
 }
 
 module iec_socket() {
+  vitamin("IEC fused socket with switch");
   color([0.1,0.1,0.1]) {
     difference() {
       union() {
