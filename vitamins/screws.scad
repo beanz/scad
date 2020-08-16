@@ -7,11 +7,19 @@ M4_allen_cap_screw = [4,     4.4, 3.3,  7.0, 4.0,   3.0, 2.0,
                       M4_nut, M4_washer, "allen cap", "M4 allen cap screw"];
 M4_button_head_screw=[4,     4.4, 3.3,  7.5, 2.2,   2.5, 1.4,
                       M4_nut, M4_washer, "button", "M4 button head screw"];
+M4_flanged_allen_cap_screw =
+                     [4,     4.4, 3.3,  9.4, 2.2,   2.5, 1.4,
+                      M4_nut, M4_washer, "flanged",
+                      "M4 flanged allen cap screw"];
 
 M5_allen_cap_screw = [5,     5.3, 4.2,  8.5, 5.0,   4.0, 2.5,
                       M5_nut, M5_washer, "allen cap", "M5 allen cap screw"];
 M5_button_head_screw=[5,     5.3, 4.2,  9.5, 2.75,  3.0, 1.6,
                       M5_nut, M5_washer, "button", "M5 button head screw"];
+M5_flanged_allen_cap_screw=
+                     [5,     5.3, 4.2,  11.8, 2.75,  3.0, 1.6,
+                      M5_nut, M5_washer, "flanged",
+                      "M5 flanged allen cap screw"];
 
 M5_low_profile_screw =[5,    5.3, 4.2,  9.0, 1.5,   3.0, 1.0,
    M5_nut, M5_washer, "low profile", "M5 low profile screw"];
@@ -52,6 +60,25 @@ module screw(type, l) {
     } else if (screw_head_type(type) == "button") {
       h = screw_head_h(type);
       d = screw_head_d(type);
+      render() intersection() {
+        rcc([d*2, d*2, h]);
+        difference() {
+          // scale should be h*2/d but we want a bit more to keep height
+          // even after socket cut
+          scale([1, 1, h*2.2/d]) sphere(d = d, $fn = 12);
+          tz(h-screw_wrench_h(type)) {
+            cylinder(d = screw_wrench_flats_d(type),
+                     h = screw_wrench_h(type)+eta,
+                     $fn = 6);
+          }
+        }
+      }
+    } else if (screw_head_type(type) == "flanged") {
+      h = screw_head_h(type);
+      flange_h = h*0.3;
+      flange_d = screw_head_d(type);
+      cylinder(d = flange_d, h = flange_h);
+      d = flange_d - 2;
       render() intersection() {
         rcc([d*2, d*2, h]);
         difference() {
