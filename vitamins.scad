@@ -11,6 +11,7 @@ include <vitamins/pulleys.scad>
 include <vitamins/cylinders.scad>
 include <vitamins/belts.scad>
 include <vitamins/microswitch.scad>
+include <vitamins/probes.scad>
 use <vitamins/e3d-v6.scad>
 use <vitamins/ooznest.scad>
 use <vitamins/electronics.scad>

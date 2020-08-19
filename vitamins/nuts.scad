@@ -2,6 +2,7 @@
 M3_nut = [3,  5.5, 2.4, M3_washer, "M3 nut"];
 M4_nut = [4,  7.0, 3.2, M4_washer, "M4 nut"];
 M5_nut = [5,  8.0, 4.0, M5_washer, "M5 nut"];
+M12_probe_nut = [12, 17, 4, M12_toothed_washer, "M12 Probe nut"];
 
 function nut_id(type) = type[0];
 function nut_od(type) = type[1];

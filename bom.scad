@@ -10,7 +10,13 @@ module stl(n) {
   }
 }
 
-module begin(n) {
+module unit(n) {
+  if (bom > 0) {
+    echo(str(n, "{"));
+  }
+}
+
+module assembly(n) {
   if (bom > 0) {
     echo(str(n, "{"));
   }
