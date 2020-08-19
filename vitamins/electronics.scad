@@ -15,6 +15,15 @@ module duet_wifi_mount_holes() {
   myz(115/2) mxz(92/2) children();
 }
 
+function iec_socket_cut_out_h() = 27.5;
+function iec_socket_cut_out_w() = 47;
+function iec_socket_screw_gap() = 39.8;
+function iec_socket_back_clearance_d() = 25;
+
+module iec_socket_screw_positions() {
+  tz(2.5) mxz(39.8/2) children();
+}
+
 module iec_socket() {
   vitamin("IEC fused socket with switch");
   color([0.1,0.1,0.1]) {
@@ -36,7 +45,9 @@ module iec_socket() {
           }
         }
       }
-      mxz(39.8/2) cylinder(d = 7.3/2, h = 100, center = true);
+      iec_socket_screw_positions() {
+        cylinder(d = 7.3/2, h = 100, center = true);
+      }
       txz(-6.3, -19.3+2.5+0.8) hull() {
         mxz(24.5/2-1/2) {
           cylinder(d = 1, h = 19.3+eta);
