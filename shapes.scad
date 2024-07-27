@@ -6,6 +6,20 @@ module cc(d) cube(d, center = true);
 // raised centered cube (bottom at z=0)
 module rcc(d) tz(d[2]/2) cc(d);
 
+module rsq(d, r = 1.5) {
+  hull() {
+    for (ix = [-1, 1]) {
+      tx(ix*(d[0]/2-r)) {
+        for (iy = [-1, 1]) {
+          ty(iy*(d[1]/2-r)) {
+            circle(r = r);
+          }
+        }
+      }
+    }
+  }
+}
+
 // rounded cube (ft = flat top & fb = flat bottom)
 module rc(d, r = 1.5, ft = false, fb = false) {
   hull() {
