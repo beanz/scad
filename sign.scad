@@ -1,3 +1,4 @@
+include <config.scad>
 use <shapes.scad>
 
 module embedded_sign(d, border = 3, embed_height = 0.2, r = 2, fn = 32, part_a = undef) {

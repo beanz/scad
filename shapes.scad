@@ -1,3 +1,4 @@
+include <config.scad>
 use <lazy.scad>
 
 // centered cube

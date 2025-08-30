@@ -1,5 +1,5 @@
 bom = $bom == undef ? 0 : $bom;
-eta = 0.01;
+eta = 0.001;
 
 washer_color = "silver";
 nut_color = "silver";
